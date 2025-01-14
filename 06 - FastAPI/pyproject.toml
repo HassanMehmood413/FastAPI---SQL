@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "06 - fastapi"
+version = "0.1.0"
+description = ""
+authors = ["Hassan Mehmood <ihassan463m@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.6"}
+uvicorn = "^0.34.0"
+sqlmodel = "^0.0.22"
+passlib = "^1.7.4"
+bcrypt = "^4.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
