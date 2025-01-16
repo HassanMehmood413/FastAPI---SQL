@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base 
 
 # Database connection URL (SQLite in this case)
 SQLALCHEMY_DATABASE_URL = "sqlite+pysqlite:///./blogs.db"
@@ -13,6 +14,10 @@ engine = create_engine(
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
 
-# 3. Declarative Mapping Base
-class Base(DeclarativeBase):
-    pass
+Base = declarative_base()
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

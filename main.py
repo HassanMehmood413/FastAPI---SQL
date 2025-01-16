@@ -11,10 +11,6 @@ app = FastAPI()
 def firstroot():
     return {'Hassan':'Mehmood'}
 
-# @app.get('/year')
-# def justcheck():
-#     return {'date':{'year':2025 , 'month':12 , 'day':25}}
-
 @app.get('/blogs')
 def get_post(limit = 10,published : bool = True, sort:Optional[str] = None):
 
